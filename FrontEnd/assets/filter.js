@@ -1,14 +1,14 @@
 export async function btnAffichage(){
-    const filter = document.querySelector(".filter");
+    const filters = document.querySelector(".filter");
     fetch("http://localhost:5678/api/categories")
     .then( response => response.json())
     .then(filterElement => {
-            for (let i =0; i < filterElement.length; i++){
+            filterElement.forEach(filter => {
                 const btn = document.createElement("button");
-                btn.innerText = filterElement[i].name;
+                btn.innerText = filter.name;
                 btn.classList= ("btn");
-                filter.appendChild(btn);
-            }
+                filters.appendChild(btn);
+            });
         });
 }
     
