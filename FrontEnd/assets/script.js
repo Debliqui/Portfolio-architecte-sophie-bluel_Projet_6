@@ -1,6 +1,5 @@
-import { figureInner, genererWorks } from "./works.js";
+import { genererWorks } from "./works.js";
 import { btnAffichage } from "./filter.js";
 
-btnAffichage()
-
-genererWorks()
+btnAffichage();
+genererWorks();
