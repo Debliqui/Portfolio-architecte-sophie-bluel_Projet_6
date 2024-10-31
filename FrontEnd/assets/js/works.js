@@ -22,7 +22,6 @@ export async function genererWorks(){
     fetch("http://localhost:5678/api/works/")
     .then(r => r.json())
     .then(works => {
-        console.table(works);
         works.forEach(work => {
             figureInner(work);          
         });
