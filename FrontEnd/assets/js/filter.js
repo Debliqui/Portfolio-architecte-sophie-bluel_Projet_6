@@ -25,7 +25,6 @@ export async function btnAffichage(){
 // Filter function by category
 function filterFigures(categoryId) {
     const btnFilters = document.querySelectorAll(".filter .btn");
-    console.log(btnFilters);
     for (let btnFilter of btnFilters){
         btnFilter.addEventListener("click", () =>{
             // Delete the 'selected' class from all buttons
