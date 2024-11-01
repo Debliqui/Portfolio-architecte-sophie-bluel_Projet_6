@@ -134,10 +134,15 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
+#portfolio{
+	position: relative;
+}
 #portfolio h2 {
 	text-align: center;
-	margin-bottom: 1em;
+	margin-top: 3em;
+	margin-bottom: 1.5em;
 }
+
 
 /* Graphic setting of filter buttons */
 .filter {
@@ -256,7 +261,6 @@ footer nav ul {
 .bannerEdit div{
 	display: flex;
 	gap: 8px;
-	cursor: pointer;
 }
 
 .bannerEdit div p{
@@ -264,4 +268,17 @@ footer nav ul {
 	font-family: Work Sans;
 	font-size: 16px;
 	font-weight: 400;
+}
+
+/* Button Edit */
+#btnEdit{
+	position: absolute;
+	top: 8px;
+	left: 50%;
+	margin-left: 128px;
+	height: 18px;
+	display: flex;
+	align-items: flex-end;
+	gap: 8px;
+	cursor: pointer;
 }
