@@ -2,25 +2,22 @@ import { genererWorks } from "../assets/js/works.js";
 import { btnAffichage } from "../assets/js/filter.js";
 import { verificationAcces } from "../assets/js/edit.js";
 
-// redirect to login page
-function affichageLoginPage(){
-    const lienLoginPage = document.querySelector("#login");
-
-    lienLoginPage.addEventListener( "click", () => {
-        window.location.href = './pages/login.html';
-    })
-}
-
-// Account logout function
-function actionLogOut(){
-    const btnLogOut = document.getElementById("logout");
-    btnLogOut.addEventListener("click", () => {
-        window.sessionStorage.removeItem("keys");
+// Function to connect or disconnect
+function AccountManagement(){
+    const btnGestionCompte = document.querySelector(".gestionCompte");
+    btnGestionCompte.addEventListener("click", () => {
+        if (btnGestionCompte.id === "login") {
+            window.location.href = './pages/login.html';
+        }
+        else if (btnGestionCompte.id === "logout") {
+            window.sessionStorage.removeItem("keys");
+            window.location.href = 'index.html';
+        }
     })
 }
 
 btnAffichage();
 genererWorks();
-affichageLoginPage();
 verificationAcces();
-actionLogOut();
+AccountManagement("login");
+AccountManagement("logout");
