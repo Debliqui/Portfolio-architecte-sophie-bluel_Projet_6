@@ -1,3 +1,5 @@
+import { affichageGallery } from "../js/modal.js";
+
 // Function to create figure in the gallery
 function figureInner(figure){
     const sectionGallery = document.querySelector(".gallery");
@@ -23,7 +25,10 @@ export async function genererWorks(){
     .then(r => r.json())
     .then(works => {
         works.forEach(work => {
-            figureInner(work);          
+            // generate works in the main gallery
+            figureInner(work);
+            // generate works in the modal gallery
+            affichageGallery(work);       
         });
     }
     )

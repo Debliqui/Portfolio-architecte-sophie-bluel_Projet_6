@@ -10,6 +10,7 @@
 	<meta name="description" content="">
 	<script type="module" src="assets/script.js" defer></script>
 	<link rel="stylesheet" href="./assets/style.css">
+	<link rel="stylesheet" href="./assets/modal.css">
 </head>
 <body>
 <header>
@@ -40,7 +41,6 @@
 		<div class="filter">
 		</div>
 		<div class="gallery">
-			
 		</div>
 	</section>
 	<section id="contact">
@@ -56,6 +56,15 @@
 			<input type="submit" value="Envoyer">
 		</form>
 	</section>
+	<dialog>
+		<button class="btnDialog" id="backBtn"><img src="assets/icons/back.svg" alt="flèche gauche pour revenir en arrière"></button>
+		<button class="btnDialog" id="closeBtn"><img src="assets/icons/X.svg" alt="croix pour fermer la fenêtre"></button>
+		<p>Galerie photo</p>
+		<div class="galleryModal">
+		</div>
+		<div class="separator"></div>
+		<button class="btn selected" id="addPicture">Ajouter une photo</button>
+	</dialog>
 </main>
 
 <footer>
