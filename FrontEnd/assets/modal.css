@@ -1,0 +1,97 @@
+/* General setting */
+dialog{
+    max-width: 630px;
+    padding-bottom: 40px;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+dialog p{
+    font-size: 26px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 24px;
+
+}
+
+/* Management open and close modal */
+.btnDialog{
+    position: absolute;
+	border: none;
+	background: none;
+}
+
+#closeBtn, #backBtn{
+    display: flex;
+    align-items: center;
+}
+
+#closeBtn {
+    height: 24px;
+    right: 14px;
+}
+
+/* fix the body without being able to scroll */
+.no-scroll {
+    overflow: hidden;
+}
+
+/* Gallery of works */
+.galleryModal{
+    width: 70%;
+    margin: 64px 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 24px 10px;
+}
+
+.galleryModal figure{
+    position: relative;
+}
+
+.galleryModal img{
+    width: 100%;
+}
+
+/* gray separating line */
+.separator{
+    width: 70%;
+    height: 1px;
+    background-color: #B3B3B3;
+    margin-bottom: 40px;
+}
+
+/* Button add picture */
+#addPicture{
+    width: 237px;
+    font-size: 14px;
+}
+
+/* Setting delete works */
+.trashDelete{
+    position: absolute;
+    top: 6px;
+    right: 4px;
+    background-color: black;
+    border-radius: 2px;
+    width: 17px;
+    height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.trashDelete img{
+    width: 9px;
+    height: 11px;
+}
+
+/* backspace button */
+#backBtn {
+    left: 14px;
+    height: 21px;
+    padding: 0;
+    display: none;
+}
