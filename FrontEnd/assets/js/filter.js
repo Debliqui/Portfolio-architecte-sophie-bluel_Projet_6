@@ -23,7 +23,7 @@ export async function btnAffichage(){
 }
 
 // Filter function by category
-function filterFigures(categoryId) {
+function filterFigures() {
     const btnFilters = document.querySelectorAll(".filter .btn");
     for (let btnFilter of btnFilters){
         btnFilter.addEventListener("click", () =>{

@@ -1,4 +1,5 @@
 import { affichageGallery } from "../js/modal.js";
+import { deleteWorks } from "../js/delete.js";
 
 // Function to create figure in the gallery
 function figureInner(figure){
@@ -28,8 +29,9 @@ export async function genererWorks(){
             // generate works in the main gallery
             figureInner(work);
             // generate works in the modal gallery
-            affichageGallery(work);       
+            affichageGallery(work);      
         });
-    }
-    )
+        // function delete
+        deleteWorks();
+    });
 }
