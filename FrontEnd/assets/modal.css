@@ -70,7 +70,7 @@ dialog p{
 }
 
 /* Setting delete works */
-.trashDelete{
+.btnDelete{
     position: absolute;
     top: 6px;
     right: 4px;
@@ -83,7 +83,7 @@ dialog p{
     justify-content: center;
     cursor: pointer;
 }
-.trashDelete img{
+.btnDelete img{
     width: 9px;
     height: 11px;
 }

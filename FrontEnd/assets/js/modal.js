@@ -54,8 +54,8 @@ export async function affichageGallery(figure){
     imgElement.setAttribute("alt", figure.title )
 
     const backgroundDelete = document.createElement("div");
-    backgroundDelete.classList.add("trashDelete");
-    backgroundDelete.setAttribute("id", "btnDelete");
+    backgroundDelete.classList.add("btnDelete");
+    backgroundDelete.setAttribute("id", figure.id );
 
     const trashCan = document.createElement("img");
     trashCan.setAttribute("src", "./assets/icons/trash-can-solid.svg");

@@ -37,7 +37,7 @@ async function apiUsers(chargeUtile) {
     })
     .then((data) => {
       // Data storage in sessionsStorage
-      window.sessionStorage.setItem("keys", JSON.stringify(data));
+      window.sessionStorage.setItem("keys", JSON.stringify(data.token));
       // redirects to homePage
       window.location.href = "../index.html";
     })
