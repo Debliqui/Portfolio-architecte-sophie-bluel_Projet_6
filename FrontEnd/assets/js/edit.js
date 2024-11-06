@@ -36,10 +36,10 @@ function bannerEdit(){
 // Create edit button
 function btnEdit(){
     const edit = `
-        <div id="btnEdit">
+        <button id="btnEdit">
             <img src="./assets/icons/pen-to-square-black.svg" alt="icon d'un stylo pointant dans un carré a contour noir">
             <p>modifier</p>
-        </div>
+        </button>
     `
     // Integration of edit after h2
     document.querySelector("#portfolio h2").insertAdjacentHTML('afterend', edit);

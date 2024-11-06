@@ -7,7 +7,7 @@ export function deleteWorks() {
   // Listen for clicks on all buttons
   for (let i = 0; i < btnDelete.length; i++) {
     btnDelete[i].addEventListener("click", async function (event) {
-      const id = event.currentTarget.id;
+      const id = event.currentTarget.dataset.pictureId;
       // Recover token from sessionStorage
       const token = sessionStorage.getItem("keys");
       // Removal of quotation marks from keys value
@@ -20,11 +20,8 @@ export function deleteWorks() {
       })
         .then((response) => {
           if (!response.ok) {
-            throw new Error("Erreur réseau");
+            throw new Error("Erreur Serveur");
           }
-          return response.json();
-        })
-        .then((data) => {
           console.log("L'élément as bien été supprimer!");
         })
         .catch((error) => {

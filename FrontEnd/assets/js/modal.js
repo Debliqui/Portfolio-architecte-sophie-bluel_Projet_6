@@ -48,6 +48,7 @@ export async function affichageGallery(figure){
     const galleryModal = document.querySelector(".galleryModal");
 
     const figureElement = document.createElement("figure");
+    figureElement.dataset.pictureId = figure.id;
 
     const imgElement = document.createElement("img");
     imgElement.src = figure.imageUrl;
@@ -55,7 +56,7 @@ export async function affichageGallery(figure){
 
     const backgroundDelete = document.createElement("div");
     backgroundDelete.classList.add("btnDelete");
-    backgroundDelete.setAttribute("id", figure.id );
+    backgroundDelete.dataset.pictureId = figure.id;
 
     const trashCan = document.createElement("img");
     trashCan.setAttribute("src", "./assets/icons/trash-can-solid.svg");
