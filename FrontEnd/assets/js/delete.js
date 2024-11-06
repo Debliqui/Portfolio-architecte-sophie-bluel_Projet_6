@@ -23,10 +23,23 @@ export function deleteWorks() {
             throw new Error("Erreur Serveur");
           }
           console.log("L'élément as bien été supprimer!");
+          deleteFigure(id);
         })
         .catch((error) => {
           console.error("Il y a eu un problème avec la requête fetch:", error);
         });
+        
     });
   }
+}
+/**
+ * Update list after deletion
+ * @param {String} id 
+ */
+function deleteFigure(id){
+  // Recovering modal and gallery figures
+  const figuresToDelete = document.querySelectorAll(`figure[data-picture-id="${id}"]`);
+  figuresToDelete.forEach(figure => {
+    figure.remove();
+  });
 }
