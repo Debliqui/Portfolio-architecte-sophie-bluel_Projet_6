@@ -5,7 +5,8 @@ import { deleteWorks } from "../js/delete.js";
 function figureInner(figure){
     const sectionGallery = document.querySelector(".gallery");
     const figureElement = document.createElement("figure");
-    figureElement.setAttribute("data-category-id", figure.categoryId);
+    figureElement.dataset.categoryId = figure.categoryId;
+    figureElement.dataset.pictureId = figure.id;
 
     const imgElement = document.createElement("img");
     imgElement.src = figure.imageUrl;
