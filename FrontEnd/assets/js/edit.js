@@ -11,10 +11,7 @@ export function verificationAcces(){
         bannerEdit();
         btnEdit();
         // Remove filter display in Edit Mode
-        document.querySelector(".filter").style.display = "none";
-    }
-    else{
-        console.log("Vous avez été déconnecté ! Veuillez vous reconnecter.");
+        // document.querySelector(".filter").style.display = "none";
     }
     
 }

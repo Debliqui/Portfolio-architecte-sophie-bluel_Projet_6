@@ -7,11 +7,13 @@ export function affichageModal(){
     const closeBtn = document.querySelector("#closeBtn");
 
     // Opening the modal at the click of #btnEdit
-    showBtn.addEventListener("click", () => {
+    if (!showBtn == null ){
+        showBtn.addEventListener("click", () => {
         dialog.showModal();
         openCheck(dialog);
         document.body.classList.add("no-scroll");
     });
+    }
     
     // Listen to event to close by clicking on the X
     closeBtn.addEventListener("click", () => {

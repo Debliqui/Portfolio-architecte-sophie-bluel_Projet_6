@@ -44,7 +44,7 @@ dialog p{
 /* Gallery of works */
 .galleryModal{
     width: 70%;
-    margin: 64px 0;
+    margin-top: 64px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 24px 10px;
@@ -59,13 +59,20 @@ dialog p{
 }
 
 /* gray separating line */
-.separator{
+.separator_1{
     width: 70%;
     height: 1px;
     background-color: #B3B3B3;
+    margin-top: 64px ;
     margin-bottom: 40px;
 }
-
+.separator_2{
+  width: 70%;
+  height: 1px;
+  background-color: #B3B3B3;
+  margin-bottom: 40px;
+  margin-top: 64px ;
+}
 #addPicture, #uploadPicture{
     width: 237px;
     font-size: 14px;
@@ -105,21 +112,19 @@ dialog form{
     justify-content: space-between;
     align-items: center;
     margin: 64px 0;
-    height: 375px;
 }
 dialog form label{
     color: #3D3D3D;
     font-weight: 500;
 }
 .container-file{
+    position: relative;
     background: #E8F1F6;
     border-radius: 3px;
     width: 420px;
     height: 169px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: center;
   }
   .container-file span{
     font-weight: 500;
@@ -128,6 +133,15 @@ dialog form label{
     font-size: 10px;
     font-weight: 400;
     margin-top: 0;
+  }
+  .uploadFile{
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
   }
   .custom-imageUpload {
       display: inline-block;
@@ -169,4 +183,19 @@ dialog form label{
     background-color: #A7A7A7;
     color: #FFFFFF ;
     border: none;
+  }
+
+  .preview{
+    background: #E8F1F6;
+    border-radius: 3px;
+    width: 420px;
+    height: 169px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .preview img{
+    width: 129px;
+    height: 100%;
+    object-fit: cover;
   }
