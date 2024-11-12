@@ -84,6 +84,7 @@ dialog p{
     top: 6px;
     right: 4px;
     background-color: black;
+    border: none;
     border-radius: 2px;
     width: 17px;
     height: 17px;

@@ -55,7 +55,7 @@ export async function affichageGallery(figure) {
   imgElement.src = figure.imageUrl;
   imgElement.setAttribute("alt", figure.title);
 
-  const backgroundDelete = document.createElement("div");
+  const backgroundDelete = document.createElement("button");
   backgroundDelete.classList.add("btnDelete");
   backgroundDelete.dataset.pictureId = figure.id;
 
