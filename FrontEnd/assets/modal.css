@@ -67,7 +67,7 @@ dialog p{
     margin-bottom: 40px;
 }
 .separator_2{
-  width: 70%;
+  width: 100%;
   height: 1px;
   background-color: #B3B3B3;
   margin-bottom: 40px;
@@ -112,7 +112,7 @@ dialog form{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin: 64px 0;
+    margin-top: 64px;
 }
 dialog form label{
     color: #3D3D3D;
