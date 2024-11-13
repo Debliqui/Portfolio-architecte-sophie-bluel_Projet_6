@@ -1,38 +1,38 @@
-import { affichageGallery } from "../js/modal.js";
+import { generateModalFigure } from "../js/modal.js";
 import { deleteWorks } from "../js/delete.js";
 
 // Function to create figure in the gallery
-function figureInner(figure){
-    const sectionGallery = document.querySelector(".gallery");
-    const figureElement = document.createElement("figure");
-    figureElement.dataset.categoryId = figure.categoryId;
-    figureElement.dataset.pictureId = figure.id;
+function generateMainFigure(figure) {
+  const figureGallery = document.createElement("figure");
+  figureGallery.dataset.categoryId = figure.categoryId;
+  figureGallery.dataset.pictureId = figure.id;
 
-    const imgElement = document.createElement("img");
-    imgElement.src = figure.imageUrl;
-    imgElement.setAttribute("alt", figure.title )
+  const imgGalery = document.createElement("img");
+  imgGalery.src = figure.imageUrl;
+  imgGalery.setAttribute("alt", figure.title);
 
-    const figcaptionElement = document.createElement("figcaption");
-    figcaptionElement.innerText = figure.title;
+  const figcaptionGalery = document.createElement("figcaption");
+  figcaptionGalery.innerText = figure.title;
 
-    sectionGallery.appendChild(figureElement);
-    figureElement.appendChild(imgElement);
-    figureElement.appendChild(figcaptionElement);
+  figureGallery.appendChild(imgGalery);
+  figureGallery.appendChild(figcaptionGalery);
 
+  return figureGallery;
 }
 
 //Function to generate works from the API
-export async function genererWorks(){
-    fetch("http://localhost:5678/api/works/")
-    .then(r => r.json())
-    .then(works => {
-        works.forEach(work => {
-            // generate works in the main gallery
-            figureInner(work);
-            // generate works in the modal gallery
-            affichageGallery(work);      
-        });
-        // function delete
-        deleteWorks();
-    });
+export async function generateWorks() {
+  const reponse = await fetch("http://localhost:5678/api/works/");
+  const works = await reponse.json();
+  works.forEach((work) => {
+    const sectionGallery = document.querySelector(".gallery");
+    // generate works in the main gallery
+    sectionGallery.appendChild(generateMainFigure(work));
+
+    const galleryModal = document.querySelector(".galleryModal");
+    // generate works in the modal gallery
+    galleryModal.appendChild(generateModalFigure(work));
+  });
+  // function delete
+  deleteWorks();
 }

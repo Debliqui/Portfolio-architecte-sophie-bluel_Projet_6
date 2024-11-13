@@ -1,4 +1,4 @@
-import { genererWorks } from "../js/works.js";
+import { generateWorks } from "../js/works.js";
 
 /**
  * Display the second modality dynamically
@@ -184,7 +184,7 @@ async function submitForm(preview, uploadFile, galleryModal) {
 
     galleryModal.innerHTML = "";
     document.querySelector(".gallery").innerHTML = "";
-    genererWorks();
+    generateWorks();
   });
 
   verifyFormEmpty();
