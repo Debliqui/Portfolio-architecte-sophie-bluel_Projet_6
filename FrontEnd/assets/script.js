@@ -1,29 +1,28 @@
-import { genererWorks } from "../assets/js/works.js";
-import { btnAffichage } from "../assets/js/filter.js";
-import { verificationAcces } from "../assets/js/edit.js";
-import { affichageModal } from "../assets/js/modal.js";
-import { deleteWorks } from "../assets/js/delete.js";
-import { affichageModalAddPicture } from "../assets/js/modal-add-picture.js";
+import { generateWorks } from "./js/works.js";
+import { btnAffichage } from "./js/filter.js";
+import { verificationAcces } from "./js/edit.js";
+import { generateMainModal } from "./js/modal.js";
+import { deleteWorks } from "./js/delete.js";
+import { affichageModalAddPicture } from "./js/modal-add-picture.js";
 
 // Function to connect or disconnect
-function AccountManagement(){
-    const btnGestionCompte = document.querySelector(".gestionCompte");
-    btnGestionCompte.addEventListener("click", () => {
-        if (btnGestionCompte.id === "login") {
-            window.location.href = './pages/login.html';
-        }
-        else if (btnGestionCompte.id === "logout") {
-            window.sessionStorage.removeItem("keys");
-            window.location.href = 'index.html';
-        }
-    })
+function managementAccount() {
+  const btnGestionCompte = document.querySelector(".gestionCompte");
+  btnGestionCompte.addEventListener("click", () => {
+    if (btnGestionCompte.id === "login") {
+      window.location.href = "./pages/login.html";
+    } else if (btnGestionCompte.id === "logout") {
+      window.sessionStorage.removeItem("keys");
+      window.location.href = "index.html";
+    }
+  });
 }
 
 btnAffichage();
-genererWorks();
+generateWorks();
 verificationAcces();
-AccountManagement("login");
-AccountManagement("logout");
-affichageModal();
+managementAccount("login");
+managementAccount("logout");
+generateMainModal();
 deleteWorks();
 affichageModalAddPicture();
