@@ -1,6 +1,6 @@
 import { generateWorks } from "./js/works.js";
 import { btnAffichage } from "./js/filter.js";
-import { verificationAcces } from "./js/edit.js";
+import { checkingAcces } from "./js/edit.js";
 import { generateMainModal } from "./js/modal.js";
 import { deleteWorks } from "./js/delete.js";
 import { affichageModalAddPicture } from "./js/modal-add-picture.js";
@@ -20,7 +20,7 @@ function managementAccount() {
 
 btnAffichage();
 generateWorks();
-verificationAcces();
+checkingAcces();
 managementAccount("login");
 managementAccount("logout");
 generateMainModal();

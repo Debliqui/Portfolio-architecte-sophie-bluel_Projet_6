@@ -1,22 +1,22 @@
 /**
  * Function that checks whether the value in the storage session has a keys key. 
  */
-export function verificationAcces(){
+export function checkingAcces(){
     const btnLogIn = document.getElementById("login");
     if (window.sessionStorage.getItem("keys")){
         // change login to logout to indicate connection
         btnLogIn.innerText = "logout";
         // Changing the id to handle the actionLogOut() function in script.js
         btnLogIn.setAttribute("id", "logout")
-        bannerEdit();
-        btnEdit();
+        generateEditBanner();
+        generateEditBtn();
         // Remove filter display in Edit Mode
         // document.querySelector(".filter").style.display = "none";
     }
     
 }
 // Creation of black banner to edit home page
-function bannerEdit(){
+function generateEditBanner(){
     const banner = `
         <header class="bannerEdit">
             <div id="banner">
@@ -31,7 +31,7 @@ function bannerEdit(){
 
 
 // Create edit button
-function btnEdit(){
+function generateEditBtn(){
     const edit = `
         <button id="btnEdit">
             <img src="./assets/icons/pen-to-square-black.svg" alt="icon d'un stylo pointant dans un carré a contour noir">
