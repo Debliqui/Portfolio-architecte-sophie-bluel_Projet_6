@@ -3,7 +3,7 @@
  */
 export function generateMainModal() {
   const dialog = document.querySelector("dialog");
-  const showBtn = document.querySelector("#btnEdit");
+  const showBtn = document.querySelector("#editBtn");
   const closeBtn = document.querySelector("#closeBtn");
 
   // Opening the modal at the click of #btnEdit
@@ -43,7 +43,7 @@ export function generateModalFigure(figure) {
   imgGalleryModal.setAttribute("alt", figure.title);
 
   const backgroundTrashCan = document.createElement("button");
-  backgroundTrashCan.classList.add("btnDelete");
+  backgroundTrashCan.classList.add("deleteBtn");
   backgroundTrashCan.dataset.pictureId = figure.id;
 
   const trashCan = document.createElement("img");

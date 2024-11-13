@@ -1,12 +1,12 @@
 /**
- * Deleting a figure by clicking .btnDelete;
+ * Deleting a figure by clicking .deleteBtn;
  * The function is integrated into the genererWorks function
  */
 export function deleteWorks() {
-  const btnDelete = document.querySelectorAll(".btnDelete");
+  const deleteBtn = document.querySelectorAll(".deleteBtn");
   // Listen for clicks on all buttons
-  for (let i = 0; i < btnDelete.length; i++) {
-    btnDelete[i].addEventListener("click", async function (event) {
+  for (let i = 0; i < deleteBtn.length; i++) {
+    deleteBtn[i].addEventListener("click", async function (event) {
       const id = event.currentTarget.dataset.pictureId;
       // Recover token from sessionStorage
       const token = sessionStorage.getItem("keys");

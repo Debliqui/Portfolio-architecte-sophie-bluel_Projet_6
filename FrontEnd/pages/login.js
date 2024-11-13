@@ -3,31 +3,31 @@
  * And call apiUsers function.
  */
 async function authenticationUser() {
-  const formLogIn = document.querySelector("#logIn");
+  const logInForm = document.querySelector("#logIn");
   // Listening to the submit button
-  formLogIn.addEventListener("submit", (event) => {
+  logInForm.addEventListener("submit", (event) => {
     event.preventDefault();
     // Input recovery
     const users = {
       email: event.target.querySelector("[name=email]").value,
       password: event.target.querySelector("[name=password]").value,
     };
-    const chargeUtile = JSON.stringify(users);
-    apiUsers(chargeUtile);
+    const userfulLoad = JSON.stringify(users);
+    apiUsers(userfulLoad);
   });
 }
 /**
  * Send a request to the API with serialized users.
  * And response processing .
  * 
- * @param {string} chargeUtile 
+ * @param {string} userfulLoad 
  * @returns {object}
  */
-async function apiUsers(chargeUtile) {
+async function apiUsers(userfulLoad) {
   fetch("http://localhost:5678/api/users/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: chargeUtile,
+    body: userfulLoad,
   })
     .then((response) => {
       if (!response.ok) {
