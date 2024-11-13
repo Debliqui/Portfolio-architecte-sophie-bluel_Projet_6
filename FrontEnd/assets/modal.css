@@ -20,7 +20,7 @@ dialog p{
 }
 
 /* Management open and close modal */
-.btnDialog{
+.dialogBtn{
     position: absolute;
 	border: none;
 	background: none;
@@ -79,7 +79,7 @@ dialog p{
 }
 
 /* Setting delete works */
-.btnDelete{
+.deleteBtn{
     position: absolute;
     top: 6px;
     right: 4px;
@@ -93,7 +93,7 @@ dialog p{
     justify-content: center;
     cursor: pointer;
 }
-.btnDelete img{
+.deleteBtn img{
     width: 9px;
     height: 11px;
 }

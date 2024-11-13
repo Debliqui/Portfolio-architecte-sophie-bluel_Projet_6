@@ -6,12 +6,12 @@ import { deleteWorks } from "./js/delete.js";
 import { affichageModalAddPicture } from "./js/modal-add-picture.js";
 
 // Function to connect or disconnect
-function managementAccount() {
-  const btnGestionCompte = document.querySelector(".gestionCompte");
-  btnGestionCompte.addEventListener("click", () => {
-    if (btnGestionCompte.id === "login") {
+function manageAccount() {
+  const manageAccountBtn = document.querySelector(".manageAccount");
+  manageAccountBtn.addEventListener("click", () => {
+    if (manageAccountBtn.id === "login") {
       window.location.href = "./pages/login.html";
-    } else if (btnGestionCompte.id === "logout") {
+    } else if (manageAccountBtn.id === "logout") {
       window.sessionStorage.removeItem("keys");
       window.location.href = "index.html";
     }
@@ -21,8 +21,8 @@ function managementAccount() {
 btnAffichage();
 generateWorks();
 checkingAcces();
-managementAccount("login");
-managementAccount("logout");
+manageAccount("login");
+manageAccount("logout");
 generateMainModal();
 deleteWorks();
 affichageModalAddPicture();
