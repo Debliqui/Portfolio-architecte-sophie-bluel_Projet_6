@@ -34,7 +34,6 @@ export function generateMainModal() {
  * @param {Object} figure
  */
 export function generateModalFigure(figure) {
-
   const figureGalleryModal = document.createElement("figure");
   figureGalleryModal.dataset.pictureId = figure.id;
 
