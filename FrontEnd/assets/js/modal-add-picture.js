@@ -193,7 +193,7 @@ function submitForm(preview, uploadFile, galleryModal) {
     // Resets all input fields to zero
     clearInputAndSelect(preview, uploadFile, elementInputSelect);
 
-    updateGalleries();
+    updateGalleries(galleryModal);
 
     addPictureSuccesMessage();
   });
@@ -218,7 +218,7 @@ function clearInputAndSelect(preview, uploadFile, elementInputSelect) {
 }
 
 // Update galleries after adding pictures
-function updateGalleries() {
+function updateGalleries(galleryModal) {
   galleryModal.innerHTML = "";
   document.querySelector(".gallery").innerHTML = "";
   generateWorks();
