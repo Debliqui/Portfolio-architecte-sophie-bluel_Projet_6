@@ -57,7 +57,7 @@ function addNewForm(addPictureBtn, backBtn, galleryModal, newForm) {
                         <option value=""></option>
                     </select>
                 </div>
-                <div class="separator_2"></div>
+                <hr class="separator_2">
                 <button class="btn selected" id="uploadPictureBtn" type="submit">Valider</button>
             </form>
         `;
