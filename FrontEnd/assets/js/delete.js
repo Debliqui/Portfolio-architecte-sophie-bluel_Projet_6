@@ -14,8 +14,8 @@ export function deleteWorks() {
       fetch("http://localhost:5678/api/works/" + id, {
         method: "DELETE",
         headers: {
-          'Authorization': `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       })
         .then((response) => {
           if (!response.ok) {
@@ -26,18 +26,19 @@ export function deleteWorks() {
         .catch((error) => {
           console.error("Il y a eu un problème avec la requête fetch:", error);
         });
-        
     });
   }
 }
 /**
  * Update list after deletion
- * @param {String} id 
+ * @param {String} id
  */
-function deleteFigure(id){
+function deleteFigure(id) {
   // Recovering modal and gallery figures
-  const figuresToDelete = document.querySelectorAll(`figure[data-picture-id="${id}"]`);
-  figuresToDelete.forEach(figure => {
+  const figuresToDelete = document.querySelectorAll(
+    `figure[data-picture-id="${id}"]`
+  );
+  figuresToDelete.forEach((figure) => {
     figure.remove();
   });
 }

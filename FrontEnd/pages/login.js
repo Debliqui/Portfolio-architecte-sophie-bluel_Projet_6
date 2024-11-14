@@ -19,8 +19,8 @@ async function authenticationUser() {
 /**
  * Send a request to the API with serialized users.
  * And response processing .
- * 
- * @param {string} userfulLoad 
+ *
+ * @param {string} userfulLoad
  * @returns {object}
  */
 async function apiUsers(userfulLoad) {
