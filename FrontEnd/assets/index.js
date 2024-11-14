@@ -1,5 +1,5 @@
 import { generateWorks } from "./js/works.js";
-import { btnAffichage } from "./js/filter.js";
+import { generateFiltersBtn } from "./js/filter.js";
 import { checkingAcces } from "./js/edit.js";
 import { generateMainModal } from "./js/modal.js";
 import { deleteWorks } from "./js/delete.js";
@@ -18,7 +18,7 @@ function manageAccount() {
   });
 }
 
-btnAffichage();
+generateFiltersBtn();
 generateWorks();
 checkingAcces();
 manageAccount("login");
