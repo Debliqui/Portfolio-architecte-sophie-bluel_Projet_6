@@ -1,52 +1,46 @@
 // Filter button display function
-export async function btnAffichage(){
-    const filters = document.querySelector(".filter");
-    fetch("http://localhost:5678/api/categories")
-    .then( response => response.json())
-    .then(filterElement => {
-        //Creation of the All button
-        const btnTous = document.createElement("button");
-        btnTous.innerText = "Tous"
-        btnTous.classList = ("btn selected");
-        btnTous.setAttribute("data-category-id", "All");
-        filters.appendChild(btnTous);
-            //Creation of buttons with category names in Api
-            filterElement.forEach(filter => {
-                const btn = document.createElement("button");
-                btn.innerText = filter.name;
-                btn.classList = ("btn");
-                btn.setAttribute("data-category-id", filter.id);
-                filters.appendChild(btn);
-            });
-            filterFigures();
-        });
+export async function generateFiltersBtn() {
+  const filters = document.querySelector(".filter");
+  const response = await fetch("http://localhost:5678/api/categories");
+  const filterElement = await response.json();
+  // Creation of a button to group all categories
+  const allCategoriesBtn = document.createElement("button");
+  allCategoriesBtn.innerText = "Tous";
+  allCategoriesBtn.classList.add("btn", "selected");
+  allCategoriesBtn.setAttribute("data-category-id", "all");
+  filters.appendChild(allCategoriesBtn);
+  //Creation of buttons with category names in Api
+  filterElement.forEach((filter) => {
+    const categoryBtn = document.createElement("button");
+    categoryBtn.innerText = filter.name;
+    categoryBtn.classList.add("btn");
+    categoryBtn.setAttribute("data-category-id", filter.id);
+    filters.appendChild(categoryBtn);
+  });
+  registerFilterEventsListener();
 }
 
-// Filter function by category
-function filterFigures() {
-    const btnFilters = document.querySelectorAll(".filter .btn");
-    for (let btnFilter of btnFilters){
-        btnFilter.addEventListener("click", () =>{
-            // Delete the 'selected' class from all buttons
-            btnFilters.forEach(btn => btn.classList.remove("selected"));
+// Function that adds listening for filter button events
+function registerFilterEventsListener() {
+  const filtersBtn = document.querySelectorAll(".filter .btn");
+  for (let filterBtn of filtersBtn) {
+    filterBtn.addEventListener("click", () => {
+      const figures = document.querySelectorAll(".gallery figure");
+      // Delete the 'selected' class from all buttons
+      filtersBtn.forEach((btn) => btn.classList.remove("selected"));
+      // Recovering categoryId datasets
+      let categoryId = filterBtn.dataset.categoryId;
 
-            // Add 'selected' class to clicked button
-            btnFilter.classList.add("selected");
-
-            let categoryId = btnFilter.dataset.categoryId;
-
-            const figures = document.querySelectorAll(".gallery figure");
-
-            for(let figure of figures){
-                figure.style.display = "none";
-
-                if (figure.dataset.categoryId === categoryId || categoryId === "All") {
-                    figure.style.display = "";
-                    btnFilter.classList.add("selected");
-                }
-            }
-        })
-    }   
-
+      for (let figure of figures) {
+        // Disappearance of all figure elements
+        figure.style.display = "none";
+        // Appearance of figure elements containing the same dataset as the button
+        if (figure.dataset.categoryId === categoryId || categoryId === "all") {
+          figure.style.display = "";
+          // Add 'selected' class to clicked button
+          filterBtn.classList.add("selected");
+        }
+      }
+    });
+  }
 }
-
