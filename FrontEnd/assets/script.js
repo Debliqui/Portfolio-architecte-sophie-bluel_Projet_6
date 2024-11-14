@@ -3,7 +3,7 @@ import { btnAffichage } from "./js/filter.js";
 import { checkingAcces } from "./js/edit.js";
 import { generateMainModal } from "./js/modal.js";
 import { deleteWorks } from "./js/delete.js";
-import { affichageModalAddPicture } from "./js/modal-add-picture.js";
+import { generateAddPictureModal } from "./js/modal-add-picture.js";
 
 // Function to connect or disconnect
 function manageAccount() {
@@ -25,4 +25,4 @@ manageAccount("login");
 manageAccount("logout");
 generateMainModal();
 deleteWorks();
-affichageModalAddPicture();
+generateAddPictureModal();

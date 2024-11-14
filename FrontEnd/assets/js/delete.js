@@ -11,18 +11,16 @@ export function deleteWorks() {
       // Recover token from sessionStorage
       const token = sessionStorage.getItem("keys");
       // Removal of quotation marks from keys value
-      const tokenWithoutQuotes = token.replace(/"/g, '');
       fetch("http://localhost:5678/api/works/" + id, {
         method: "DELETE",
         headers: {
-          'Authorization': `Bearer ${tokenWithoutQuotes}`
+          'Authorization': `Bearer ${token}`
         }
       })
         .then((response) => {
           if (!response.ok) {
             throw new Error("Erreur Serveur");
           }
-          console.log("L'élément as bien été supprimer!");
           deleteFigure(id);
         })
         .catch((error) => {
