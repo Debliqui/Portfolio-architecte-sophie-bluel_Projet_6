@@ -202,6 +202,9 @@ li:hover,
 #login {
   cursor: pointer;
 }
+#login span{
+  font-weight: 700;
+}
 #introduction {
   display: flex;
   align-items: center;
