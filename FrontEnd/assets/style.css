@@ -182,12 +182,8 @@ nav li a {
   color: black;
 }
 
-nav li a:hover {
-  color: #b1663c;
-}
-
-li:hover,
-.gestionCompte:hover {
+nav li a:hover,
+.manageAccount:hover, #login span:hover {
   color: #b1663c;
 }
 
@@ -256,9 +252,15 @@ li:hover,
   min-width: 100px;
   cursor: pointer;
 }
+.btn:hover{
+  background-color: #e6e6d8;
+}
 .selected {
   background-color: #1d6154;
   color: #ffffff;
+}
+.selected:hover{
+  background-color: #0E2F28;
 }
 
 /* Gallery of works */
@@ -329,6 +331,9 @@ input[type="submit"] {
   width: 180px;
   text-align: center;
   border-radius: 60px;
+}
+input[type="submit"]:hover {
+  background-color: #0E2F28;
 }
 
 #logIn a {

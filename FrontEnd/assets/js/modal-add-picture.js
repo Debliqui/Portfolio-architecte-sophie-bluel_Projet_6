@@ -147,10 +147,10 @@ function submitForm(preview, uploadFile, galleryModal) {
       }
     });
     if (allFilled) {
-      uploadPictureBtn.classList.add("selected");
+      uploadPictureBtn.classList.add("btn", "selected");
       uploadPictureBtn.classList.remove("notValid");
     } else {
-      uploadPictureBtn.classList.remove("selected");
+      uploadPictureBtn.classList.remove("btn", "selected");
       uploadPictureBtn.classList.add("notValid");
     }
   }

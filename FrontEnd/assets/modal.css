@@ -72,8 +72,8 @@ dialog p {
   margin-bottom: 40px;
   margin-top: 64px;
 }
-#addPicture,
-#uploadPicture {
+#addPictureBtn,
+#uploadPictureBtn {
   width: 237px;
   font-size: 14px;
 }
@@ -190,6 +190,13 @@ label[for="category"] {
   background-color: #a7a7a7;
   color: #ffffff;
   border: none;
+  border-radius: 60px;
+  font-family: "Syne";
+  font-weight: 700;
+  font-size: 16px;
+  padding: 8px;
+  min-width: 100px;
+  cursor: pointer;
 }
 
 .preview {
