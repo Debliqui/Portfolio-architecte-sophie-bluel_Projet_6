@@ -3,7 +3,7 @@
  * And call apiUsers function.
  */
 async function authenticationUser() {
-  const logInForm = document.querySelector("#logIn");
+  const logInForm = document.querySelector("#logIn form");
   // Listening to the submit button
   logInForm.addEventListener("submit", (event) => {
     event.preventDefault();
