@@ -226,7 +226,8 @@ function updateGalleries(galleryModal) {
 
 // Add success message after adding picture
 function addPictureSuccesMessage() {
-  const successMessage = `
+  if (!document.getElementById("successMessage")){
+    const successMessage = `
   <div id="successMessage">
     <p>Votre travail a été ajouté avec succès</p>
     <img src="assets/icons/icon-check.png" alt="">
@@ -235,4 +236,5 @@ function addPictureSuccesMessage() {
   document
     .querySelector("form .container-file")
     .insertAdjacentHTML("beforebegin", successMessage);
+  }
 }
