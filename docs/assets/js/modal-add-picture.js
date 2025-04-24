@@ -1,21 +1,21 @@
-import { generateWorks } from "../js/works.js";
+import { generateWorks } from "../js/works.js"
 
 /**
  * Display the second modality dynamically
  */
 export function generateAddPictureModal() {
-  const addPictureBtn = document.querySelector("#addPictureBtn");
-  const backBtn = document.querySelector("#backBtn");
-  const galleryModal = document.querySelector(".galleryModal");
-  const newForm = document.createElement("form");
+  const addPictureBtn = document.querySelector("#addPictureBtn")
+  const backBtn = document.querySelector("#backBtn")
+  const galleryModal = document.querySelector(".galleryModal")
+  const newForm = document.createElement("form")
 
   // Listening to the click of the addPicture button for add new form
-  addNewForm(addPictureBtn, backBtn, galleryModal, newForm);
+  addNewForm(addPictureBtn, backBtn, galleryModal, newForm)
 
   // Listening to the click of the back button for return at main galleryModal
   backBtn.addEventListener("click", () => {
-    returnGalleryModal(addPictureBtn, backBtn, galleryModal, newForm);
-  });
+    returnGalleryModal(addPictureBtn, backBtn, galleryModal, newForm)
+  })
 }
 
 /**
@@ -30,11 +30,11 @@ function addNewForm(addPictureBtn, backBtn, galleryModal, newForm) {
     /**
      * This style change allows you to redisplay the contents of the new form at the end of the listening session.
      */
-    newForm.style.display = "flex";
+    newForm.style.display = "flex"
 
-    backBtn.style.display = "block";
+    backBtn.style.display = "block"
 
-    document.querySelector("dialog p").textContent = "Ajout photo";
+    document.querySelector("dialog p").textContent = "Ajout photo"
 
     newForm.innerHTML = `
             <form>
@@ -60,39 +60,41 @@ function addNewForm(addPictureBtn, backBtn, galleryModal, newForm) {
                 <hr class="separator_2">
                 <button class="btn selected" id="uploadPictureBtn" type="submit">Valider</button>
             </form>
-        `;
+        `
 
-    galleryModal.insertAdjacentElement("afterend", newForm);
+    galleryModal.insertAdjacentElement("afterend", newForm)
 
-    generateCategoryMenu();
+    generateCategoryMenu()
 
-    const preview = document.querySelector(".preview");
-    const uploadFile = document.querySelector(".uploadFile");
+    const preview = document.querySelector(".preview")
+    const uploadFile = document.querySelector(".uploadFile")
 
-    addPicturePreview(preview, uploadFile);
+    addPicturePreview(preview, uploadFile)
 
-    galleryModal.style.display = "none";
-    addPictureBtn.style.display = "none";
-    document.querySelector(".separator_1").style.display = "none";
+    galleryModal.style.display = "none"
+    addPictureBtn.style.display = "none"
+    document.querySelector(".separator_1").style.display = "none"
 
-    submitForm(preview, uploadFile, galleryModal);
-  });
+    submitForm(preview, uploadFile, galleryModal)
+  })
 }
 
 /**
  * Calling up Api categories to generate them into the category menu
  */
 async function generateCategoryMenu() {
-  const selectCategory = document.querySelector("#category");
-  const response = await fetch("http://localhost:5678/api/categories");
-  const categories = await response.json();
+  const selectCategory = document.querySelector("#category")
+  const response = await fetch(
+    "https://portfolio-architecte-sophie-bluel-projet.onrender.com/api/categories"
+  )
+  const categories = await response.json()
   // Creation of category options for each category
   categories.forEach((category) => {
-    const option = document.createElement("option");
-    option.innerText = category.name;
-    option.setAttribute("value", category.id);
-    selectCategory.appendChild(option);
-  });
+    const option = document.createElement("option")
+    option.innerText = category.name
+    option.setAttribute("value", category.id)
+    selectCategory.appendChild(option)
+  })
 }
 
 /**
@@ -103,12 +105,12 @@ async function generateCategoryMenu() {
  * @param {HTMLElement} newForm
  */
 function returnGalleryModal(addPictureBtn, backBtn, galleryModal, newForm) {
-  backBtn.style.display = "none";
-  newForm.style.display = "none";
-  galleryModal.style.display = "grid";
-  document.querySelector("dialog p").textContent = "Galerie photo";
-  addPictureBtn.style.display = "block";
-  document.querySelector(".separator_1").style.display = "block";
+  backBtn.style.display = "none"
+  newForm.style.display = "none"
+  galleryModal.style.display = "grid"
+  document.querySelector("dialog p").textContent = "Galerie photo"
+  addPictureBtn.style.display = "block"
+  document.querySelector(".separator_1").style.display = "block"
 }
 /**
  * Include preview of uploaded image
@@ -116,89 +118,92 @@ function returnGalleryModal(addPictureBtn, backBtn, galleryModal, newForm) {
  * @param {HTMLElement} uploadFile
  */
 function addPicturePreview(preview, uploadFile) {
-  const input = document.querySelector("input[type='file']");
+  const input = document.querySelector("input[type='file']")
 
   input.addEventListener("change", () => {
-    const file = input.files;
+    const file = input.files
     if (file.length == 0) {
-      preview.style.zIndex = "0";
-      uploadFile.style.zIndex = "1";
+      preview.style.zIndex = "0"
+      uploadFile.style.zIndex = "1"
     } else {
-      preview.style.zIndex = "1";
-      uploadFile.style.zIndex = "0";
-      const image = document.createElement("img");
-      image.src = window.URL.createObjectURL(file[0]);
-      preview.appendChild(image);
+      preview.style.zIndex = "1"
+      uploadFile.style.zIndex = "0"
+      const image = document.createElement("img")
+      image.src = window.URL.createObjectURL(file[0])
+      preview.appendChild(image)
     }
-  });
+  })
 }
 
 function submitForm(preview, uploadFile, galleryModal) {
-  const form = document.querySelector("dialog form");
-  const uploadPictureBtn = document.querySelector("#uploadPictureBtn");
-  const elementInputSelect = document.querySelectorAll("dialog input, select");
+  const form = document.querySelector("dialog form")
+  const uploadPictureBtn = document.querySelector("#uploadPictureBtn")
+  const elementInputSelect = document.querySelectorAll("dialog input, select")
 
   // Function that changes the button rendering when all fields are filled in.
   function checkEmptyFields() {
-    let allFilled = true;
+    let allFilled = true
     elementInputSelect.forEach((element) => {
       if (element.value === "") {
-        allFilled = false;
+        allFilled = false
       }
-    });
+    })
     if (allFilled) {
-      uploadPictureBtn.classList.add("btn", "selected");
-      uploadPictureBtn.classList.remove("notValid");
+      uploadPictureBtn.classList.add("btn", "selected")
+      uploadPictureBtn.classList.remove("notValid")
     } else {
-      uploadPictureBtn.classList.remove("btn", "selected");
-      uploadPictureBtn.classList.add("notValid");
+      uploadPictureBtn.classList.remove("btn", "selected")
+      uploadPictureBtn.classList.add("notValid")
     }
   }
 
   // Listen to all input fields
   elementInputSelect.forEach((element) => {
-    element.addEventListener("input", checkEmptyFields);
-  });
+    element.addEventListener("input", checkEmptyFields)
+  })
 
   // Delete the success message when you want to add a new picuture
   elementInputSelect.forEach((element) => {
     element.addEventListener("focus", () => {
-      const successMessage = document.getElementById("successMessage");
+      const successMessage = document.getElementById("successMessage")
       if (successMessage) {
-        successMessage.remove();
+        successMessage.remove()
       }
-    });
-  });
+    })
+  })
 
   // Sending formData to the api
   form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const formData = new FormData(form);
-    const token = sessionStorage.getItem("keys");
+    event.preventDefault()
+    const formData = new FormData(form)
+    const token = sessionStorage.getItem("keys")
     try {
-      const response = await fetch("http://localhost:5678/api/works", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        body: formData,
-      });
+      const response = await fetch(
+        "https://portfolio-architecte-sophie-bluel-projet.onrender.com/api/works",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          body: formData,
+        }
+      )
 
       if (!response.ok) {
-        throw new Error("Erreur Serveur");
+        throw new Error("Erreur Serveur")
       }
     } catch (error) {
-      console.error("Il y a eu un problème avec la requête fetch:", error);
+      console.error("Il y a eu un problème avec la requête fetch:", error)
     }
     // Resets all input fields to zero
-    clearInputAndSelect(preview, uploadFile, elementInputSelect);
+    clearInputAndSelect(preview, uploadFile, elementInputSelect)
 
-    updateGalleries(galleryModal);
+    updateGalleries(galleryModal)
 
-    addPictureSuccesMessage();
-  });
+    addPictureSuccesMessage()
+  })
 
-  checkEmptyFields();
+  checkEmptyFields()
 }
 
 /**
@@ -209,32 +214,32 @@ function submitForm(preview, uploadFile, galleryModal) {
  */
 function clearInputAndSelect(preview, uploadFile, elementInputSelect) {
   elementInputSelect.forEach((element) => {
-    element.value = "";
-  });
-  preview.innerHTML = "";
+    element.value = ""
+  })
+  preview.innerHTML = ""
 
-  preview.style.zIndex = "0";
-  uploadFile.style.zIndex = "1";
+  preview.style.zIndex = "0"
+  uploadFile.style.zIndex = "1"
 }
 
 // Update galleries after adding pictures
 function updateGalleries(galleryModal) {
-  galleryModal.innerHTML = "";
-  document.querySelector(".gallery").innerHTML = "";
-  generateWorks();
+  galleryModal.innerHTML = ""
+  document.querySelector(".gallery").innerHTML = ""
+  generateWorks()
 }
 
 // Add success message after adding picture
 function addPictureSuccesMessage() {
-  if (!document.getElementById("successMessage")){
+  if (!document.getElementById("successMessage")) {
     const successMessage = `
   <div id="successMessage">
     <p>Votre travail a été ajouté avec succès</p>
     <img src="assets/icons/icon-check.png" alt="">
   </div>
-`;
-  document
-    .querySelector("form .container-file")
-    .insertAdjacentHTML("beforebegin", successMessage);
+`
+    document
+      .querySelector("form .container-file")
+      .insertAdjacentHTML("beforebegin", successMessage)
   }
 }
