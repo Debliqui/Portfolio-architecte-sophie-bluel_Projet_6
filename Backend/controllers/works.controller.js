@@ -15,14 +15,9 @@ exports.create = async (req, res) => {
   const userId = req.auth.userId
 
   try {
-    // Upload de l'image sur Cloudinary
-    const result = await cloudinary.uploader.upload(req.file.path) // Upload de l'image
-
-    // URL de l'image stockée sur Cloudinary
-    const imageUrl = result.secure_url
-
-    // Supprime le fichier local après l'upload sur Cloudinary
-    fs.unlinkSync(path.join(__dirname, "../uploads", req.file.filename)) // Supprime le fichier local
+    // Avec multer-storage-cloudinary, l'upload est déjà fait,
+    // l'URL Cloudinary est directement disponible ici :
+    const imageUrl = req.file.path
 
     // Création du nouveau work dans la base de données
     const work = await Works.create({
@@ -34,6 +29,7 @@ exports.create = async (req, res) => {
 
     return res.status(201).json(work)
   } catch (err) {
+    console.error(err)
     return res.status(500).json({ error: new Error("Something went wrong") })
   }
 }
