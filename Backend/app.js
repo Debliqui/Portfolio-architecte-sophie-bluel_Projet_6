@@ -15,7 +15,8 @@ app.get("/", (req, res) => {
 })
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin:
+      "https://debliqui.github.io/Portfolio-architecte-sophie-bluel_Projet_6/",
     credentials: true,
   })
 )
