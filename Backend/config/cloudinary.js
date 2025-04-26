@@ -1,4 +1,5 @@
 const cloudinary = require("cloudinary").v2
+const { CloudinaryStorage } = require("multer-storage-cloudinary")
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -6,12 +7,12 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 })
 
-const storage = cloudinary.storage({
+const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-    folder: "portfolio_images", // Ce paramètre permet de choisir un dossier dans Cloudinary
-    allowed_formats: ["jpg", "png", "jpeg"], // Formats d'image autorisés
+    folder: "portfolio_images", // ou un autre nom de dossier dans Cloudinary
+    allowed_formats: ["jpg", "jpeg", "png"],
   },
 })
 
-module.exports = { storage, cloudinary }
+module.exports = { cloudinary, storage }
