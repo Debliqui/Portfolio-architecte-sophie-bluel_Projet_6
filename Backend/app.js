@@ -8,6 +8,11 @@ const yaml = require("yamljs")
 const swaggerDocs = yaml.load("swagger.yaml")
 const app = express()
 
+const allowedOrigins = [
+  "https://debliqui.github.io",
+  "https://debliqui.github.io/Portfolio-architecte-sophie-bluel_Projet_6",
+]
+
 app.get("/", (req, res) => {
   res.send(
     'Bienvenue sur le backend ! Consultez la documentation API à <a href="/api-docs">/api-docs</a>'
@@ -15,8 +20,7 @@ app.get("/", (req, res) => {
 })
 app.use(
   cors({
-    origin:
-      "https://debliqui.github.io/Portfolio-architecte-sophie-bluel_Projet_6/",
+    origin: allowedOrigins,
     credentials: true,
   })
 )
