@@ -7,13 +7,19 @@ const swaggerUi = require("swagger-ui-express")
 const yaml = require("yamljs")
 const swaggerDocs = yaml.load("swagger.yaml")
 const app = express()
+const allowedOrigins = [process.env.FRONTEND_URL, "http://localhost:3000"]
 
 app.get("/", (req, res) => {
   res.send(
     'Bienvenue sur le backend ! Consultez la documentation API à <a href="/api-docs">/api-docs</a>'
   )
 })
-app.use(cors())
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  })
+)
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(
