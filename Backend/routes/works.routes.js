@@ -1,15 +1,23 @@
 const express = require("express")
 const router = express.Router()
-const multer = require("multer")
-const { storage } = require("../config/cloudinary") // Utilisation du storage configuré pour Cloudinary
-const upload = multer({ storage }) // Multer est configuré pour utiliser Cloudinary
 
+// Middlewares
 const auth = require("../middlewares/auth")
 const checkWork = require("../middlewares/checkWork")
+
+// Multer avec stockage Cloudinary
+const multer = require("multer")
+const { storage } = require("../config/cloudinary")
+const upload = multer({ storage })
+
+// Contrôleur
 const workCtrl = require("../controllers/works.controller")
 
-router.post("/", auth, upload.single("image"), checkWork, workCtrl.create) // Upload de l'image
+// ROUTES
 router.get("/", workCtrl.findAll)
+
+router.post("/", auth, upload.single("image"), checkWork, workCtrl.create)
+
 router.delete("/:id", auth, workCtrl.delete)
 
 module.exports = router
