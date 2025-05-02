@@ -1,8 +1,5 @@
 const db = require("./../models")
 const Works = db.works
-const cloudinary = require("../config/cloudinary") // Import de la configuration Cloudinary
-const fs = require("fs")
-const path = require("path")
 
 exports.findAll = async (req, res) => {
   const works = await Works.findAll({ include: "category" })
@@ -15,11 +12,8 @@ exports.create = async (req, res) => {
   const userId = req.auth.userId
 
   try {
-    // Avec multer-storage-cloudinary, l'upload est déjà fait,
-    // l'URL Cloudinary est directement disponible ici :
     const imageUrl = req.file.path
 
-    // Création du nouveau work dans la base de données
     const work = await Works.create({
       title,
       imageUrl,
